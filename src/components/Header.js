@@ -3,10 +3,10 @@ import React from "react";
 class Header extends React.Component {
   render() {
     return (
-      <div>
-        <h1 className="text-center my-3">Memory game</h1>
-        <div className="d-flex container-fluid">
-          <div className="px-5 col-6 ">
+      <header>
+        <h1 className="text-center py-3">Memory game</h1>
+        <div className="d-flex justify-content-around align-items-center">
+          <div className="col-6">
             <h2>Règle : </h2>
             <p>
               Le but du jeu est de reconnaître les cartes par paire. Vous
@@ -17,17 +17,17 @@ class Header extends React.Component {
               gagnée!
             </p>
           </div>
-          <div className="d-flex justify-content-center">
+          <div>
             <button
               type="button"
-              className="btn btn-warning "
+              className="btn btn-warning"
               style={{ height: 40 }}
             >
               Reset
             </button>
           </div>
         </div>
-      </div>
+      </header>
     );
   }
 }
