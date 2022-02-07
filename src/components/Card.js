@@ -16,18 +16,24 @@ class Card extends React.Component {
 
   renderBack() {
     return (
-      <div style={{ width: "2rem", height: "2rem", backgroundColor: "grey" }}>
-        {this.props.children}
+      <div style={{ width: "3rem", height: "4rem" }}>
+        <img
+          // onClick={this.showFace}
+          onClick={()=> {this.props.onClick(this.props.cardProps.value); this.showFace()} }
+          src={this.state.path}
+          alt="Carte retournée"
+          style={{ width: "auto", height: "4rem" }}
+        />
       </div>
     );
   }
 
   renderFace() {
     return (
-      <div style={{ width: "3rem", height: "4rem", backgroundColor: "grey" }}>
+      <div style={{ width: "3rem", height: "4rem" }}>
         <img
           src={this.props.cardProps.path}
-          alt="pic"
+          alt="Carte face"
           style={{ width: "auto", height: "4rem" }}
         />
       </div>

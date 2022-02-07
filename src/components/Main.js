@@ -8,124 +8,109 @@ class Main extends React.Component {
     super();
     this.state = {
       cardProps: [
-        { id: 1, path: "/images/img1.jpg" },
-        { id: 2, path: "/images/img2.jpg" },
-        { id: 3, path: "/images/img3.jpg" },
-        { id: 4, path: "/images/img4.jpg" },
-        { id: 5, path: "/images/img5.jpg" },
-        { id: 6, path: "/images/img6.jpg" },
+        {  path: "/images/img1.jpg", value: 20, face: false},
+        {  path: "/images/img2.jpg", value: 21, face: false},
+        {  path: "/images/img3.jpg", value: 22, face: false},
+        {  path: "/images/img4.jpg", value: 23, face: false},
+        {  path: "/images/img5.jpg", value: 24, face: false},
+        {  path: "/images/img6.jpg", value: 25, face: false},
+        {  path: "/images/img1.jpg", value: 20, face: false},
+        {  path: "/images/img2.jpg", value: 21, face: false},
+        {  path: "/images/img3.jpg", value: 22, face: false},
+        {  path: "/images/img4.jpg", value: 23, face: false},
+        {  path: "/images/img5.jpg", value: 24, face: false},
+        {  path: "/images/img6.jpg", value: 25, face: false},
       ],
-      cardsArray: [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6],
+      currentValue1: "",
+      currentValue2: "",
+     
     };
-    this.renderCards = this.renderCards.bind(this);
+this.turnTheCard = this.turnTheCard.bind(this)
   }
+turnTheCard(cardVal){
+
+  if(this.state.currentValue1 ===""){
+    this.setState({currentValue1: cardVal});
+  }else {
+    this.setState({currentValue2: cardVal})
+    if(this.state.currentValue1 !== "" && this.state.currentValue2 !== ""){
+      if (this.state.currentValue1 === this.state.currentValue2){
+        console.log("hello")
+        
+        }
+      }
+    }
+  }
+componentDidMount(){
+  this.state.cardProps.sort(() => Math.random() - 0.5);
+}
+
+componentDidUpdate(){
+  console.log(this.state.currentValue1);
+  console.log(this.state.currentValue2);
+}
+
 
   renderCards() {
-    let randomArray = this.state.cardsArray.sort(() => Math.random() - 0.5);
- 
-      return (
-        <>
-      <div className="row d-flex justify-content-around">
-      <div className="card col-2">
-        <Card>{this.state.cardsArray[0]}</Card>
-      </div>
-      <div className="card col-2">
-        <Card>{this.state.cardsArray[1]}</Card>{" "}
-      </div>
-      <div className="card col-2">
-        <Card>{this.state.cardsArray[2]}</Card>{" "}
-      </div>
-      <div className="card col-2">
-        <Card>{this.state.cardsArray[3]}</Card>{" "}
-      </div>
-    </div> 
     
-      <div className="row d-flex justify-content-around">
-      <div className="card col-2">
-        <Card>{this.state.cardsArray[4]}</Card>
-      </div>
-      <div className="card col-2">
-        <Card>{this.state.cardsArray[5]}</Card>{" "}
-      </div>
-      <div className="card col-2">
-        <Card>{this.state.cardsArray[6]}</Card>{" "}
-      </div>
-      <div className="card col-2">
-        <Card>{this.state.cardsArray[7]}</Card>{" "}
-      </div>
-    </div>
-     
-      <div className="row d-flex justify-content-around">
-      <div className="card col-2">
-        <Card>{this.state.cardsArray[8]}</Card>
-      </div>
-      <div className="card col-2">
-        <Card>{this.state.cardsArray[9]}</Card>{" "}
-      </div>
-      <div className="card col-2">
-        <Card>{this.state.cardsArray[10]}</Card>{" "}
-      </div>
-      <div className="card col-2">
-        <Card>{this.state.cardsArray[11]}</Card>{" "}
-      </div>
-    </div>
-    </>);
-    
-    
-    
+
+    return (
+      <section className="container-fluid">
+        <div className="row d-flex justify-content-around">
+          <div className="card col-2">
+            <Card cardProps={this.state.cardProps[0]}
+            onClick={this.turnTheCard} 
+            try={this.state.try}
+            />
+          </div>
+          <div className="card col-2">
+            <Card cardProps={this.state.cardProps[1]} onClick={this.turnTheCard} />
+          </div>
+          <div className="card col-2">
+            <Card cardProps={this.state.cardProps[2]} onClick={this.turnTheCard} />
+          </div>
+          <div className="card col-2">
+            <Card cardProps={this.state.cardProps[3]} onClick={this.turnTheCard} />
+          </div>
+        </div>
+
+        <div className="row d-flex justify-content-around">
+          <div className="card col-2">
+            <Card cardProps={this.state.cardProps[4]} onClick={this.turnTheCard} />
+          </div>
+          <div className="card col-2">
+            <Card cardProps={this.state.cardProps[5]} onClick={this.turnTheCard} />
+          </div>
+          <div className="card col-2">
+            <Card cardProps={this.state.cardProps[6]} onClick={this.turnTheCard} />
+          </div>
+          <div className="card col-2">
+            <Card cardProps={this.state.cardProps[7]} onClick={this.turnTheCard} />
+          </div>
+        </div>
+
+        <div className="row d-flex justify-content-around">
+          <div className="card col-2">
+            <Card cardProps={this.state.cardProps[8]} onClick={this.turnTheCard} />
+          </div>
+          <div className="card col-2">
+            <Card cardProps={this.state.cardProps[9]} onClick={this.turnTheCard} />
+          </div>
+          <div className="card col-2">
+            <Card cardProps={this.state.cardProps[10]} onClick={this.turnTheCard} />
+          </div>
+          <div className="card col-2">
+            <Card cardProps={this.state.cardProps[11]} onClick={this.turnTheCard} />
+          </div>
+        </div>
+      </section>
+    );
   }
 
   render() {
-    return (
-      <main>
-        <section className="container-fluid">
-          <div className="row d-flex justify-content-around">
-            <div className="card col-2">
-              <Card cardProps={this.state.cardProps[0]}></Card>
-            </div>
-            <div className="card col-2">
-              <Card cardProps={this.state.cardProps[0]}></Card>{" "}
-            </div>
-            <div className="card col-2">
-              <Card cardProps={this.state.cardProps[1]}></Card>{" "}
-            </div>
-            <div className="card col-2">
-              <Card cardProps={this.state.cardProps[1]}></Card>{" "}
-            </div>
-          </div>
-
-          <div className="row d-flex justify-content-around">
-            <div className="card col-2">
-              <Card></Card>
-            </div>
-            <div className="card col-2">
-              <Card></Card>{" "}
-            </div>
-            <div className="card col-2">
-              <Card></Card>{" "}
-            </div>
-            <div className="card col-2">
-              <Card></Card>{" "}
-            </div>
-          </div>
-
-          <div className="row d-flex justify-content-around">
-            <div className="card col-2">
-              <Card></Card>
-            </div>
-            <div className="card col-2">
-              <Card></Card>{" "}
-            </div>
-            <div className="card col-2">
-              <Card></Card>{" "}
-            </div>
-            <div className="card col-2">
-              <Card></Card>{" "}
-            </div>
-          </div>
-        </section>
-      </main>
-    );
+    return <main>{this.renderCards()}
+     
+    </main>;
   }
 }
 
