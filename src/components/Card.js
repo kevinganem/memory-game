@@ -4,7 +4,7 @@ class Card extends React.Component {
   render() {
     return (
       <div style={{ width: "2rem", height: "2rem", backgroundColor: "grey" }}>
-        Card
+        {this.props.children}
       </div>
     );
   }
