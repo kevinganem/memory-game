@@ -16,13 +16,8 @@ class Card extends React.Component {
 
   renderBack() {
     return (
-      <div style={{ width: "3rem", height: "4rem", backgroundColor: "grey" }}>
-        <img
-          onClick={this.showFace}
-          src={this.state.path}
-          alt="pic"
-          style={{ width: "auto", height: "4rem" }}
-        />
+      <div style={{ width: "2rem", height: "2rem", backgroundColor: "grey" }}>
+        {this.props.children}
       </div>
     );
   }
