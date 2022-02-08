@@ -21,14 +21,7 @@ class Card extends React.Component {
       this.setState({ face: false });
     }
   }
-  showBack(value1, value2) {
-    if (value1 !== "" && value2 !== "") {
-      if (value1 !== value2) {
-        console.log("Good Morning");
-        this.setState({ face: false });
-      }
-    }
-  }
+
   renderBack() {
     return (
       <div style={{ width: "3rem", height: "4rem" }}>

@@ -1,9 +1,11 @@
 import React from "react";
+import Timer from "./Timer";
 
 class Header extends React.Component {
   render() {
     return (
       <header>
+        <Timer />
         <h1 className="text-center py-3">Memory game</h1>
         <div className="d-flex justify-content-around align-items-center">
           <div className="col-6">
