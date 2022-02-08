@@ -9,8 +9,11 @@ class Card extends React.Component {
       founded: false,
     };
     this.showCard = this.showCard.bind(this);
+    this.turnFalse = this.turnFalse.bind(this);
   }
-
+  turnFalse() {
+    this.setState({ face: false });
+  }
   showCard() {
     if (this.state.face === false) {
       this.setState({ face: true });
@@ -61,7 +64,7 @@ class Card extends React.Component {
           this.props.currentValue1 !== this.props.cardProps.value ||
           this.props.currentValue2 !== this.props.cardProps.value
         ) {
-          this.setState({ face: false });
+          setTimeout(this.turnFalse, 1000);
         }
       } else if (this.props.currentValue1 === this.props.currentValue2) {
         if (
