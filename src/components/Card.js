@@ -6,20 +6,34 @@ class Card extends React.Component {
     this.state = {
       path: "/images/halloween.jpg",
       face: false,
+      founded: false,
     };
-    this.showFace = this.showFace.bind(this);
+    this.showCard = this.showCard.bind(this);
   }
 
-  showFace() {
-    this.setState({ face: true });
+  showCard() {
+    if (this.state.face === false) {
+      this.setState({ face: true });
+    } else if (this.state.face === true) {
+      this.setState({ face: false });
+    }
   }
-
+  showBack(value1, value2) {
+    if (value1 !== "" && value2 !== "") {
+      if (value1 !== value2) {
+        console.log("Good Morning");
+        this.setState({ face: false });
+      }
+    }
+  }
   renderBack() {
     return (
       <div style={{ width: "3rem", height: "4rem" }}>
         <img
-          // onClick={this.showFace}
-          onClick={()=> {this.props.onClick(this.props.cardProps.value); this.showFace()} }
+          onClick={() => {
+            this.props.onClick(this.props.cardProps.value);
+            this.showCard();
+          }}
           src={this.state.path}
           alt="Carte retournée"
           style={{ width: "auto", height: "4rem" }}
@@ -40,8 +54,30 @@ class Card extends React.Component {
     );
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.currentValue2 !== this.props.currentValue2) {
+      if (this.props.currentValue1 !== this.props.currentValue2) {
+        if (
+          this.props.currentValue1 !== this.props.cardProps.value ||
+          this.props.currentValue2 !== this.props.cardProps.value
+        ) {
+          this.setState({ face: false });
+        }
+      } else if (this.props.currentValue1 === this.props.currentValue2) {
+        if (
+          this.props.currentValue1 === this.props.cardProps.value ||
+          this.props.currentValue2 === this.props.cardProps.value
+        ) {
+          this.setState({ founded: true });
+        }
+      }
+    }
+  }
+
   render() {
-    if (this.state.face === false) {
+    if (this.state.founded === true) {
+      return this.renderFace();
+    } else if (this.state.face === false) {
       return this.renderBack();
     } else if (this.state.face === true) {
       return this.renderFace();
