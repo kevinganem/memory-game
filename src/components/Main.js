@@ -62,8 +62,8 @@ class Main extends React.Component {
   renderCards() {
     return (
       <section className="container-fluid">
-        <div className="row d-flex justify-content-around">
-          <div className="card col-2">
+        <div className="row d-flex justify-content-around mt-4">
+          <div className="col-2">
             <Card
               cardProps={this.state.cardProps[0]}
               onClick={this.turnTheCard}
@@ -71,7 +71,7 @@ class Main extends React.Component {
               currentValue2={this.state.currentValue2}
             />
           </div>
-          <div className="card col-2">
+          <div className="col-2">
             <Card
               cardProps={this.state.cardProps[1]}
               onClick={this.turnTheCard}
@@ -79,7 +79,7 @@ class Main extends React.Component {
               currentValue2={this.state.currentValue2}
             />
           </div>
-          <div className="card col-2">
+          <div className="col-2">
             <Card
               cardProps={this.state.cardProps[2]}
               onClick={this.turnTheCard}
@@ -87,7 +87,7 @@ class Main extends React.Component {
               currentValue2={this.state.currentValue2}
             />
           </div>
-          <div className="card col-2">
+          <div className="col-2">
             <Card
               cardProps={this.state.cardProps[3]}
               onClick={this.turnTheCard}
@@ -98,7 +98,7 @@ class Main extends React.Component {
         </div>
 
         <div className="row d-flex justify-content-around">
-          <div className="card col-2">
+          <div className="col-2">
             <Card
               cardProps={this.state.cardProps[4]}
               onClick={this.turnTheCard}
@@ -106,7 +106,7 @@ class Main extends React.Component {
               currentValue2={this.state.currentValue2}
             />
           </div>
-          <div className="card col-2">
+          <div className="col-2">
             <Card
               cardProps={this.state.cardProps[5]}
               onClick={this.turnTheCard}
@@ -114,7 +114,7 @@ class Main extends React.Component {
               currentValue2={this.state.currentValue2}
             />
           </div>
-          <div className="card col-2">
+          <div className="col-2">
             <Card
               cardProps={this.state.cardProps[6]}
               onClick={this.turnTheCard}
@@ -122,7 +122,7 @@ class Main extends React.Component {
               currentValue2={this.state.currentValue2}
             />
           </div>
-          <div className="card col-2">
+          <div className="col-2">
             <Card
               cardProps={this.state.cardProps[7]}
               onClick={this.turnTheCard}
@@ -133,7 +133,7 @@ class Main extends React.Component {
         </div>
 
         <div className="row d-flex justify-content-around">
-          <div className="card col-2">
+          <div className="col-2">
             <Card
               cardProps={this.state.cardProps[8]}
               onClick={this.turnTheCard}
@@ -141,7 +141,7 @@ class Main extends React.Component {
               currentValue2={this.state.currentValue2}
             />
           </div>
-          <div className="card col-2">
+          <div className="col-2">
             <Card
               cardProps={this.state.cardProps[9]}
               onClick={this.turnTheCard}
@@ -149,7 +149,7 @@ class Main extends React.Component {
               currentValue2={this.state.currentValue2}
             />
           </div>
-          <div className="card col-2">
+          <div className="col-2">
             <Card
               cardProps={this.state.cardProps[10]}
               onClick={this.turnTheCard}
@@ -157,7 +157,7 @@ class Main extends React.Component {
               currentValue2={this.state.currentValue2}
             />
           </div>
-          <div className="card col-2">
+          <div className="col-2">
             <Card
               cardProps={this.state.cardProps[11]}
               onClick={this.turnTheCard}

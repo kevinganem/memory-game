@@ -9,8 +9,11 @@ class Card extends React.Component {
       founded: false,
     };
     this.showCard = this.showCard.bind(this);
+    this.turnFalse = this.turnFalse.bind(this);
   }
-
+  turnFalse() {
+    this.setState({ face: false });
+  }
   showCard() {
     if (this.state.face === false) {
       this.setState({ face: true });
@@ -28,7 +31,7 @@ class Card extends React.Component {
   }
   renderBack() {
     return (
-      <div style={{ width: "3rem", height: "4rem" }}>
+      <div style={{ width: "3rem", height: "8rem" }}>
         <img
           onClick={() => {
             this.props.onClick(this.props.cardProps.value);
@@ -48,7 +51,7 @@ class Card extends React.Component {
         <img
           src={this.props.cardProps.path}
           alt="Carte face"
-          style={{ width: "auto", height: "4rem" }}
+          style={{ width: "auto", height: "6rem" }}
         />
       </div>
     );
@@ -61,7 +64,7 @@ class Card extends React.Component {
           this.props.currentValue1 !== this.props.cardProps.value ||
           this.props.currentValue2 !== this.props.cardProps.value
         ) {
-          this.setState({ face: false });
+          setTimeout(this.turnFalse, 1000);
         }
       } else if (this.props.currentValue1 === this.props.currentValue2) {
         if (
