@@ -17,7 +17,22 @@ class Reset extends React.Component {
             type="submit"
             className="btn btn-warning"
             style={{ height: 40 }}
-            value="reset"
+            value="Reset"
+          />
+        </form>
+      </>
+    );
+  }
+
+  renderRestart() {
+    return (
+      <>
+        <form>
+          <input
+            type="submit"
+            className="btn btn-success"
+            style={{ height: 40 }}
+            value="Start again"
           />
         </form>
       </>
@@ -25,7 +40,11 @@ class Reset extends React.Component {
   }
 
   render() {
-    return this.renderPlaying();
+    if (this.props.finish) {
+      return this.renderRestart();
+    } else {
+      return this.renderPlaying();
+    }
   }
 }
 export default Reset;

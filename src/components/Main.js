@@ -59,6 +59,10 @@ class Main extends React.Component {
       this.setState({ currentValue1: "" });
       this.setState({ currentValue2: "" });
     }
+
+    if (this.state.matchedCards === 6) {
+      return this.props.gameOver();
+    }
   }
 
   renderGameOver() {
@@ -66,7 +70,7 @@ class Main extends React.Component {
       return (
         <>
           <h2>Félicitations vous avez gagné</h2>
-          <Reset />
+          <Reset finish={this.props.finish} />
         </>
       );
     }
