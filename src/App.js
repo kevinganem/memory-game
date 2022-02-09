@@ -9,22 +9,22 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      finish: false,
+      finished: false,
     };
     this.gameOver = this.gameOver.bind(this);
   }
 
   gameOver() {
-    if (this.state.finish === false) {
-      this.setState({ finish: true });
+    if (!this.state.finished) {
+      this.setState({ finished: true });
     }
   }
 
   render() {
     return (
       <>
-        <Header finish={this.state.finish} />
-        <Main finish={this.state.finish} gameOver={this.gameOver} />
+        <Header finish={this.state.finished} />
+        <Main finish={this.state.finished} gameOver={this.gameOver} />
       </>
     );
   }

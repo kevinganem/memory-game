@@ -38,7 +38,7 @@ class Main extends React.Component {
       });
     }
   }
-
+  // BUG
   turnTheCard(cardVal) {
     if (this.state.currentValue1 === "") {
       this.setState({ currentValue1: cardVal });
@@ -69,8 +69,12 @@ class Main extends React.Component {
     if (this.state.matchedCards === 6) {
       return (
         <>
-          <h2>Félicitations vous avez gagné</h2>
-          <Reset finish={this.props.finish} />
+          <div className="gameOver mt-5">
+            <h2 className="text-center">Félicitations vous avez gagné</h2>
+            <div className="d-flex justify-content-center mt-3">
+              <Reset finish={this.props.finish} />
+            </div>
+          </div>
         </>
       );
     }

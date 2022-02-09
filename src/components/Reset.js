@@ -1,21 +1,13 @@
 import React from "react";
 
 class Reset extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      started: false,
-      time: 45,
-    };
-  }
-
   renderPlaying() {
     return (
       <>
         <form>
           <input
             type="submit"
-            className="btn btn-warning"
+            className="btn btn-light"
             style={{ height: 40 }}
             value="Reset"
           />
@@ -30,7 +22,7 @@ class Reset extends React.Component {
         <form>
           <input
             type="submit"
-            className="btn btn-success"
+            className="btn btn-light"
             style={{ height: 40 }}
             value="Start again"
           />

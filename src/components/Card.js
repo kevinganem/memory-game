@@ -6,7 +6,7 @@ class Card extends React.Component {
     this.state = {
       path: "/images/backside.jpg",
       face: false,
-      founded: false,
+      found: false,
     };
     this.showCard = this.showCard.bind(this);
     this.turnFalse = this.turnFalse.bind(this);
@@ -15,20 +15,9 @@ class Card extends React.Component {
     this.setState({ face: false });
   }
   showCard() {
-    if (this.state.face === false) {
-      this.setState({ face: true });
-    } else if (this.state.face === true) {
-      this.setState({ face: false });
-    }
+    this.setState({ face: true });
   }
-  showBack(value1, value2) {
-    if (value1 !== "" && value2 !== "") {
-      if (value1 !== value2) {
-        console.log("Good Morning");
-        this.setState({ face: false });
-      }
-    }
-  }
+
   renderBack() {
     return (
       <div
@@ -64,9 +53,6 @@ class Card extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.currentValue1 !== "" && prevProps.currentValue2 !== "") {
-      this.turnFalse();
-    }
     if (prevProps.currentValue2 !== this.props.currentValue2) {
       if (this.props.currentValue1 !== this.props.currentValue2) {
         if (
@@ -85,17 +71,17 @@ class Card extends React.Component {
         this.props.currentValue1 === this.props.cardProps.value &&
         this.props.currentValue2 === this.props.cardProps.value
       ) {
-        this.setState({ founded: true });
+        this.setState({ found: true });
       }
     }
   }
 
   render() {
-    if (this.state.founded === true) {
+    if (this.state.found) {
       return this.renderFace();
-    } else if (this.state.face === false) {
+    } else if (!this.state.face) {
       return this.renderBack();
-    } else if (this.state.face === true) {
+    } else if (this.state.face) {
       return this.renderFace();
     }
   }
