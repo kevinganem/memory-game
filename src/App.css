@@ -4,6 +4,16 @@ header {
 }
 body {
   background: linear-gradient(to right, rgb(0, 0, 70), rgb(28, 181, 224));
-  font-family: 'Press Start 2P', cursive !important;
+  font-family: "Press Start 2P", cursive !important;
 }
 
+.card {
+  background-color: white;
+}
+.row {
+  height: 15vh;
+}
+
+img {
+  object-fit: fill;
+}

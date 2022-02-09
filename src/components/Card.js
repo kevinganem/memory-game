@@ -31,15 +31,18 @@ class Card extends React.Component {
   }
   renderBack() {
     return (
-      <div style={{ width: "3rem", height: "8rem" }}>
+      <div
+        className="col-2 card d-flex justify-content-center"
+        onClick={() => {
+          this.props.onClick(this.props.cardProps.value);
+          this.showCard();
+        }}
+        style={{ padding: 0 }}
+      >
         <img
-          onClick={() => {
-            this.props.onClick(this.props.cardProps.value);
-            this.showCard();
-          }}
           src={this.state.path}
           alt="Carte retournée"
-          style={{ width: "auto", height: "4rem" }}
+          style={{ width: "100%", height: "9rem" }}
         />
       </div>
     );
@@ -47,11 +50,14 @@ class Card extends React.Component {
 
   renderFace() {
     return (
-      <div style={{ width: "3rem", height: "4rem" }}>
+      <div
+        className="col-2 card  d-flex justify-content-center"
+        style={{ padding: 0 }}
+      >
         <img
           src={this.props.cardProps.path}
           alt="Carte face"
-          style={{ width: "auto", height: "6rem" }}
+          style={{ width: "100%", height: "9rem" }}
         />
       </div>
     );

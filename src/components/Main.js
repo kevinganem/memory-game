@@ -9,18 +9,18 @@ class Main extends React.Component {
     super();
     this.state = {
       cardProps: [
-        { path: "/images/img1.png", value: "mer" },
-        { path: "/images/img2.png", value: "montagne" },
-        { path: "/images/img3.png", value: "champs" },
-        { path: "/images/img4.png", value: "chèvre" },
-        { path: "/images/img5.png", value: "couple" },
-        { path: "/images/img6.png", value: "rome" },
-        { path: "/images/img1.png", value: "mer" },
-        { path: "/images/img2.png", value: "montagne" },
-        { path: "/images/img3.png", value: "champs" },
-        { path: "/images/img4.png", value: "chèvre" },
-        { path: "/images/img5.png", value: "couple" },
-        { path: "/images/img6.png", value: "rome" },
+        { path: "/images/img1.png", value: "bootstrap" },
+        { path: "/images/img2.png", value: "css" },
+        { path: "/images/img3.png", value: "html" },
+        { path: "/images/img4.png", value: "js" },
+        { path: "/images/img5.png", value: "node" },
+        { path: "/images/img6.png", value: "python" },
+        { path: "/images/img1.png", value: "bootstrap" },
+        { path: "/images/img2.png", value: "css" },
+        { path: "/images/img3.png", value: "html" },
+        { path: "/images/img4.png", value: "js" },
+        { path: "/images/img5.png", value: "node" },
+        { path: "/images/img6.png", value: "python" },
       ],
       currentValue1: "",
       currentValue2: "",
@@ -78,14 +78,12 @@ class Main extends React.Component {
       if (i >= firstCard && i <= lastCard) {
         console.log(typeof i);
         return (
-          <div className="card col-2">
-            <Card
-              cardProps={this.state.cardProps[i]}
-              onClick={this.turnTheCard}
-              currentValue1={this.state.currentValue1}
-              currentValue2={this.state.currentValue2}
-            />
-          </div>
+          <Card
+            cardProps={this.state.cardProps[i]}
+            onClick={this.turnTheCard}
+            currentValue1={this.state.currentValue1}
+            currentValue2={this.state.currentValue2}
+          />
         );
       } else {
         return null;
