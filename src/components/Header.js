@@ -9,12 +9,7 @@ class Header extends React.Component {
           <div className="col-6">
             <h2>Règle : </h2>
             <p>
-              Le but du jeu est de reconnaître les cartes par paire. Vous
-              disposez de 12 cartes que vous devez retourner 2 par 2. si vous
-              trouvez les paires, les cartes restent retournées. vous devez
-              mémoriser l’emplacement de chaque carte et cliquer sur 2 autres
-              cartes. Quand il n’y a plus de carte à retourner, la partie est
-              gagnée!
+              Trouve  les images identiques et c'est gagné!
             </p>
           </div>
           <div>

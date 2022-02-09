@@ -8,24 +8,25 @@ class Main extends React.Component {
     super();
     this.state = {
       cardProps: [
-        { path: "/images/img1.jpg", id: 0, value: 20, face: false },
-        { path: "/images/img2.jpg", id: 1, value: 21, face: false },
-        { path: "/images/img3.jpg", id: 2, value: 22, face: false },
-        { path: "/images/img4.jpg", id: 3, value: 23, face: false },
-        { path: "/images/img5.jpg", id: 4, value: 24, face: false },
-        { path: "/images/img6.jpg", id: 5, value: 25, face: false },
-        { path: "/images/img1.jpg", id: 6, value: 20, face: false },
-        { path: "/images/img2.jpg", id: 7, value: 21, face: false },
-        { path: "/images/img3.jpg", id: 8, value: 22, face: false },
-        { path: "/images/img4.jpg", id: 9, value: 23, face: false },
-        { path: "/images/img5.jpg", id: 10, value: 24, face: false },
-        { path: "/images/img6.jpg", id: 11, value: 25, face: false },
+        { path: "/images/img1.png", id: 0, value: 20, face: false },
+        { path: "/images/img2.png", id: 1, value: 21, face: false },
+        { path: "/images/img3.png", id: 2, value: 22, face: false },
+        { path: "/images/img4.png", id: 3, value: 23, face: false },
+        { path: "/images/img5.png", id: 4, value: 24, face: false },
+        { path: "/images/img6.png", id: 5, value: 25, face: false },
+        { path: "/images/img1.png", id: 6, value: 20, face: false },
+        { path: "/images/img2.png", id: 7, value: 21, face: false },
+        { path: "/images/img3.png", id: 8, value: 22, face: false },
+        { path: "/images/img4.png", id: 9, value: 23, face: false },
+        { path: "/images/img5.png", id: 10, value: 24, face: false },
+        { path: "/images/img6.png", id: 11, value: 25, face: false },
       ],
       currentValue1: "",
       currentValue2: "",
       matchedCards: 0,
     };
     this.turnTheCard = this.turnTheCard.bind(this);
+    this.renderCards = this.renderCards.bind(this);
   }
 
   turnTheCard(cardVal, cardId) {
@@ -58,120 +59,40 @@ class Main extends React.Component {
       this.setState({ currentValue2: "" });
     }
   }
-
-  renderCards() {
-    return (
-      <section className="container-fluid">
-        <div className="row d-flex justify-content-around mt-4">
-          <div className="col-2">
-            <Card
-              cardProps={this.state.cardProps[0]}
-              onClick={this.turnTheCard}
-              currentValue1={this.state.currentValue1}
-              currentValue2={this.state.currentValue2}
-            />
-          </div>
-          <div className="col-2">
-            <Card
-              cardProps={this.state.cardProps[1]}
-              onClick={this.turnTheCard}
-              currentValue1={this.state.currentValue1}
-              currentValue2={this.state.currentValue2}
-            />
-          </div>
-          <div className="col-2">
-            <Card
-              cardProps={this.state.cardProps[2]}
-              onClick={this.turnTheCard}
-              currentValue1={this.state.currentValue1}
-              currentValue2={this.state.currentValue2}
-            />
-          </div>
-          <div className="col-2">
-            <Card
-              cardProps={this.state.cardProps[3]}
-              onClick={this.turnTheCard}
-              currentValue1={this.state.currentValue1}
-              currentValue2={this.state.currentValue2}
-            />
-          </div>
+// takes index of first and last cards in the rendered row
+renderCards(firstCard, lastCard) {
+  console.log(this.state.cardProps)
+  return (this.state.cardProps.map((card, i) => {
+    if (i >= firstCard && i <= lastCard) {
+      console.log(typeof i)
+      return (
+        <div className="card col-2">
+          <Card
+            cardProps={this.state.cardProps[1]}
+            onClick={this.turnTheCard}
+            currentValue1={this.state.currentValue1}
+            currentValue2={this.state.currentValue2}
+          />
         </div>
-
-        <div className="row d-flex justify-content-around">
-          <div className="col-2">
-            <Card
-              cardProps={this.state.cardProps[4]}
-              onClick={this.turnTheCard}
-              currentValue1={this.state.currentValue1}
-              currentValue2={this.state.currentValue2}
-            />
-          </div>
-          <div className="col-2">
-            <Card
-              cardProps={this.state.cardProps[5]}
-              onClick={this.turnTheCard}
-              currentValue1={this.state.currentValue1}
-              currentValue2={this.state.currentValue2}
-            />
-          </div>
-          <div className="col-2">
-            <Card
-              cardProps={this.state.cardProps[6]}
-              onClick={this.turnTheCard}
-              currentValue1={this.state.currentValue1}
-              currentValue2={this.state.currentValue2}
-            />
-          </div>
-          <div className="col-2">
-            <Card
-              cardProps={this.state.cardProps[7]}
-              onClick={this.turnTheCard}
-              currentValue1={this.state.currentValue1}
-              currentValue2={this.state.currentValue2}
-            />
-          </div>
-        </div>
-
-        <div className="row d-flex justify-content-around">
-          <div className="col-2">
-            <Card
-              cardProps={this.state.cardProps[8]}
-              onClick={this.turnTheCard}
-              currentValue1={this.state.currentValue1}
-              currentValue2={this.state.currentValue2}
-            />
-          </div>
-          <div className="col-2">
-            <Card
-              cardProps={this.state.cardProps[9]}
-              onClick={this.turnTheCard}
-              currentValue1={this.state.currentValue1}
-              currentValue2={this.state.currentValue2}
-            />
-          </div>
-          <div className="col-2">
-            <Card
-              cardProps={this.state.cardProps[10]}
-              onClick={this.turnTheCard}
-              currentValue1={this.state.currentValue1}
-              currentValue2={this.state.currentValue2}
-            />
-          </div>
-          <div className="col-2">
-            <Card
-              cardProps={this.state.cardProps[11]}
-              onClick={this.turnTheCard}
-              currentValue1={this.state.currentValue1}
-              currentValue2={this.state.currentValue2}
-            />
-          </div>
-        </div>
-      </section>
-    );
-  }
+      );
+    } else {
+      return null;
+    }
+  })
+  )}
 
   render() {
-    return <main>{this.renderCards()}</main>;
+    return (<main>
+      <section className="container-fluid">
+
+      </section>
+      <div className="row d-flex justify-content-around mt-4">
+      {this.renderCards(0, 3)}</div>
+      <div className="row d-flex justify-content-around mt-4">
+      {this.renderCards(4, 7)}</div>
+      <div className="row d-flex justify-content-around mt-4">
+      {this.renderCards(8, 11)}</div>
+    </main>);
   }
 }
 
