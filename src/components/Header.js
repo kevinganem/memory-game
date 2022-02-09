@@ -1,4 +1,5 @@
 import React from "react";
+import Reset from "./Reset";
 
 class Header extends React.Component {
   render() {
@@ -18,13 +19,7 @@ class Header extends React.Component {
             </p>
           </div>
           <div>
-            <button
-              type="button"
-              className="btn btn-warning"
-              style={{ height: 40 }}
-            >
-              Reset
-            </button>
+            <Reset />
           </div>
         </div>
       </header>

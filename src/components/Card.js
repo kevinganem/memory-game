@@ -58,21 +58,28 @@ class Card extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
+    if (this.props.currentValue1 !== "" && prevProps.currentValue2 !== "") {
+      this.turnFalse();
+    }
     if (prevProps.currentValue2 !== this.props.currentValue2) {
       if (this.props.currentValue1 !== this.props.currentValue2) {
         if (
           this.props.currentValue1 !== this.props.cardProps.value ||
           this.props.currentValue2 !== this.props.cardProps.value
         ) {
-          setTimeout(this.turnFalse, 1000);
+          setTimeout(this.turnFalse, 500);
         }
-      } else if (this.props.currentValue1 === this.props.currentValue2) {
-        if (
-          this.props.currentValue1 === this.props.cardProps.value ||
-          this.props.currentValue2 === this.props.cardProps.value
-        ) {
-          this.setState({ founded: true });
-        }
+      }
+    }
+    if (
+      this.props.currentValue1 === this.props.currentValue2 &&
+      this.props.currentValue2 !== ""
+    ) {
+      if (
+        this.props.currentValue1 === this.props.cardProps.value &&
+        this.props.currentValue2 === this.props.cardProps.value
+      ) {
+        this.setState({ founded: true });
       }
     }
   }
