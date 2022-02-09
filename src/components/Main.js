@@ -59,40 +59,43 @@ class Main extends React.Component {
       this.setState({ currentValue2: "" });
     }
   }
-// takes index of first and last cards in the rendered row
-renderCards(firstCard, lastCard) {
-  console.log(this.state.cardProps)
-  return (this.state.cardProps.map((card, i) => {
-    if (i >= firstCard && i <= lastCard) {
-      console.log(typeof i)
-      return (
-        <div className="card col-2">
-          <Card
-            cardProps={this.state.cardProps[1]}
-            onClick={this.turnTheCard}
-            currentValue1={this.state.currentValue1}
-            currentValue2={this.state.currentValue2}
-          />
-        </div>
-      );
-    } else {
-      return null;
-    }
-  })
-  )}
+  // takes index of first and last cards in the rendered row
+  renderCards(firstCard, lastCard) {
+    console.log(this.state.cardProps);
+    return this.state.cardProps.map((card, i) => {
+      if (i >= firstCard && i <= lastCard) {
+        console.log(typeof i);
+        return (
+          <div className="card col-2">
+            <Card
+              cardProps={this.state.cardProps[i]}
+              onClick={this.turnTheCard}
+              currentValue1={this.state.currentValue1}
+              currentValue2={this.state.currentValue2}
+            />
+          </div>
+        );
+      } else {
+        return null;
+      }
+    });
+  }
 
   render() {
-    return (<main>
-      <section className="container-fluid">
-
-      </section>
-      <div className="row d-flex justify-content-around mt-4">
-      {this.renderCards(0, 3)}</div>
-      <div className="row d-flex justify-content-around mt-4">
-      {this.renderCards(4, 7)}</div>
-      <div className="row d-flex justify-content-around mt-4">
-      {this.renderCards(8, 11)}</div>
-    </main>);
+    return (
+      <main>
+        <section className="container-fluid"></section>
+        <div className="row d-flex justify-content-around mt-4">
+          {this.renderCards(0, 3)}
+        </div>
+        <div className="row d-flex justify-content-around mt-4">
+          {this.renderCards(4, 7)}
+        </div>
+        <div className="row d-flex justify-content-around mt-4">
+          {this.renderCards(8, 11)}
+        </div>
+      </main>
+    );
   }
 }
 

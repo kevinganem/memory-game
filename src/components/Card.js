@@ -4,7 +4,7 @@ class Card extends React.Component {
   constructor() {
     super();
     this.state = {
-      path: "/images/halloween.jpg",
+      path: "/images/backside.jpg",
       face: false,
       founded: false,
     };
