@@ -71,6 +71,27 @@ class Main extends React.Component {
       );
     }
   }
+  // takes index of first and last cards in the rendered row
+  renderCards(firstCard, lastCard) {
+    console.log(this.state.cardProps);
+    return this.state.cardProps.map((card, i) => {
+      if (i >= firstCard && i <= lastCard) {
+        console.log(typeof i);
+        return (
+          <div className="card col-2">
+            <Card
+              cardProps={this.state.cardProps[i]}
+              onClick={this.turnTheCard}
+              currentValue1={this.state.currentValue1}
+              currentValue2={this.state.currentValue2}
+            />
+          </div>
+        );
+      } else {
+        return null;
+      }
+    });
+  }
 
   render() {
     return (
