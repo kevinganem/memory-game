@@ -31,7 +31,7 @@ class Card extends React.Component {
   }
   renderBack() {
     return (
-      <div style={{ width: "3rem", height: "4rem" }}>
+      <div style={{ width: "3rem", height: "8rem" }}>
         <img
           onClick={() => {
             this.props.onClick(this.props.cardProps.value);
@@ -51,7 +51,7 @@ class Card extends React.Component {
         <img
           src={this.props.cardProps.path}
           alt="Carte face"
-          style={{ width: "auto", height: "4rem" }}
+          style={{ width: "auto", height: "6rem" }}
         />
       </div>
     );
