@@ -1,4 +1,9 @@
 header {
-  background-color: rgba(34, 218, 202, 0.822);
-  color: blueviolet;
+  background-color: transparent; /*rgba(34, 218, 202, 0.822); */
+  color: rgb(204, 166, 240);
 }
+body {
+  background: linear-gradient(to right, rgb(0, 0, 70), rgb(28, 181, 224));
+  font-family: 'Press Start 2P', cursive !important;
+}
+

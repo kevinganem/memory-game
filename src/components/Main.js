@@ -9,18 +9,18 @@ class Main extends React.Component {
     super();
     this.state = {
       cardProps: [
-        { path: "/images/img1.jpg", value: "mer" },
-        { path: "/images/img2.jpg", value: "montagne" },
-        { path: "/images/img3.jpg", value: "champs" },
-        { path: "/images/img4.jpg", value: "chèvre" },
-        { path: "/images/img5.jpg", value: "couple" },
-        { path: "/images/img6.jpg", value: "rome" },
-        { path: "/images/img1.jpg", value: "mer" },
-        { path: "/images/img2.jpg", value: "montagne" },
-        { path: "/images/img3.jpg", value: "champs" },
-        { path: "/images/img4.jpg", value: "chèvre" },
-        { path: "/images/img5.jpg", value: "couple" },
-        { path: "/images/img6.jpg", value: "rome" },
+        { path: "/images/img1.png", value: "mer" },
+        { path: "/images/img2.png", value: "montagne" },
+        { path: "/images/img3.png", value: "champs" },
+        { path: "/images/img4.png", value: "chèvre" },
+        { path: "/images/img5.png", value: "couple" },
+        { path: "/images/img6.png", value: "rome" },
+        { path: "/images/img1.png", value: "mer" },
+        { path: "/images/img2.png", value: "montagne" },
+        { path: "/images/img3.png", value: "champs" },
+        { path: "/images/img4.png", value: "chèvre" },
+        { path: "/images/img5.png", value: "couple" },
+        { path: "/images/img6.png", value: "rome" },
       ],
       currentValue1: "",
       currentValue2: "",
@@ -28,6 +28,7 @@ class Main extends React.Component {
     };
     this.turnTheCard = this.turnTheCard.bind(this);
     this.addMatchedCards = this.addMatchedCards.bind(this);
+    this.renderCards = this.renderCards.bind(this);
   }
 
   addMatchedCards() {
@@ -71,121 +72,20 @@ class Main extends React.Component {
     }
   }
 
-  renderCards() {
-    return (
-      <section className="container-fluid">
-        <div className="row d-flex justify-content-around">
-          <div className="card col-2">
-            <Card
-              cardProps={this.state.cardProps[0]}
-              onClick={this.turnTheCard}
-              currentValue1={this.state.currentValue1}
-              currentValue2={this.state.currentValue2}
-            />
-          </div>
-          <div className="card col-2">
-            <Card
-              cardProps={this.state.cardProps[1]}
-              onClick={this.turnTheCard}
-              currentValue1={this.state.currentValue1}
-              currentValue2={this.state.currentValue2}
-            />
-          </div>
-          <div className="card col-2">
-            <Card
-              cardProps={this.state.cardProps[2]}
-              onClick={this.turnTheCard}
-              currentValue1={this.state.currentValue1}
-              currentValue2={this.state.currentValue2}
-            />
-          </div>
-          <div className="card col-2">
-            <Card
-              cardProps={this.state.cardProps[3]}
-              onClick={this.turnTheCard}
-              currentValue1={this.state.currentValue1}
-              currentValue2={this.state.currentValue2}
-            />
-          </div>
-        </div>
-
-        <div className="row d-flex justify-content-around">
-          <div className="card col-2">
-            <Card
-              cardProps={this.state.cardProps[4]}
-              onClick={this.turnTheCard}
-              currentValue1={this.state.currentValue1}
-              currentValue2={this.state.currentValue2}
-            />
-          </div>
-          <div className="card col-2">
-            <Card
-              cardProps={this.state.cardProps[5]}
-              onClick={this.turnTheCard}
-              currentValue1={this.state.currentValue1}
-              currentValue2={this.state.currentValue2}
-            />
-          </div>
-          <div className="card col-2">
-            <Card
-              cardProps={this.state.cardProps[6]}
-              onClick={this.turnTheCard}
-              currentValue1={this.state.currentValue1}
-              currentValue2={this.state.currentValue2}
-            />
-          </div>
-          <div className="card col-2">
-            <Card
-              cardProps={this.state.cardProps[7]}
-              onClick={this.turnTheCard}
-              currentValue1={this.state.currentValue1}
-              currentValue2={this.state.currentValue2}
-            />
-          </div>
-        </div>
-
-        <div className="row d-flex justify-content-around">
-          <div className="card col-2">
-            <Card
-              cardProps={this.state.cardProps[8]}
-              onClick={this.turnTheCard}
-              currentValue1={this.state.currentValue1}
-              currentValue2={this.state.currentValue2}
-            />
-          </div>
-          <div className="card col-2">
-            <Card
-              cardProps={this.state.cardProps[9]}
-              onClick={this.turnTheCard}
-              currentValue1={this.state.currentValue1}
-              currentValue2={this.state.currentValue2}
-            />
-          </div>
-          <div className="card col-2">
-            <Card
-              cardProps={this.state.cardProps[10]}
-              onClick={this.turnTheCard}
-              currentValue1={this.state.currentValue1}
-              currentValue2={this.state.currentValue2}
-            />
-          </div>
-          <div className="card col-2">
-            <Card
-              cardProps={this.state.cardProps[11]}
-              onClick={this.turnTheCard}
-              currentValue1={this.state.currentValue1}
-              currentValue2={this.state.currentValue2}
-            />
-          </div>
-        </div>
-      </section>
-    );
-  }
-
   render() {
     return (
       <main>
-        {this.renderCards()}
+        <section className="container-fluid">
+          <div className="row d-flex justify-content-around mt-4">
+            {this.renderCards(0, 3)}
+          </div>
+          <div className="row d-flex justify-content-around mt-4">
+            {this.renderCards(4, 7)}
+          </div>
+          <div className="row d-flex justify-content-around mt-4">
+            {this.renderCards(8, 11)}
+          </div>
+        </section>
         {this.renderGameOver()}
       </main>
     );
