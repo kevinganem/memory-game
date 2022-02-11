@@ -38,7 +38,7 @@ class Main extends React.Component {
       });
     }
   }
-  // BUG
+
   turnTheCard(cardVal) {
     if (this.state.currentValue1 === "") {
       this.setState({ currentValue1: cardVal });
