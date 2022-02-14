@@ -2,6 +2,30 @@ import React from "react";
 import Reset from "./Reset";
 
 class Header extends React.Component {
+  // constructor() {
+  //   super();
+
+  //   this.state = {
+  //     seconds: 60,
+  //   };
+  // }
+
+  // componentDidMount() {
+  //   this.myInterval = setInterval(() => {
+  //     const { seconds } = this.state;
+
+  //     if (seconds > 0) {
+  //       this.setState(({ seconds }) => ({
+  //         seconds: seconds - 1,
+  //       }));
+  //     }
+  //   }, 1000);
+  // }
+
+  // componentWillUnmount() {
+  //   clearInterval(this.myInterval);
+  // }
+
   renderReset() {
     if (this.props.finish) {
       return null;

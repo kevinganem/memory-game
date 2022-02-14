@@ -25,6 +25,8 @@ class Main extends React.Component {
       currentValue1: "",
       currentValue2: "",
       matchedCards: 0,
+      seconds: 30,
+      classToChange: "visible",
     };
     this.turnTheCard = this.turnTheCard.bind(this);
     this.addMatchedCards = this.addMatchedCards.bind(this);
@@ -48,6 +50,19 @@ class Main extends React.Component {
   }
   componentDidMount() {
     this.state.cardProps.sort(() => Math.random() - 0.5);
+    this.myInterval = setInterval(() => {
+      const { seconds } = this.state;
+
+      if (seconds > 0) {
+        this.setState(({ seconds }) => ({
+          seconds: seconds - 1,
+        }));
+      }
+    }, 1000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.myInterval);
   }
 
   componentDidUpdate() {
@@ -66,11 +81,21 @@ class Main extends React.Component {
   }
 
   renderGameOver() {
-    if (this.state.matchedCards === 6) {
+    if (this.state.matchedCards === 6 && this.state.seconds > 0) {
       return (
         <>
           <div className="gameOver mt-5">
             <h2 className="text-center">Félicitations vous avez gagné</h2>
+            <div className="d-flex justify-content-center mt-3">
+              <Reset finish={this.props.finish} />
+            </div>
+          </div>
+        </>
+      );
+    } else if (this.state.seconds === 0) {
+      return (
+        <>
+          <div className="gameOver mt-5">
             <div className="d-flex justify-content-center mt-3">
               <Reset finish={this.props.finish} />
             </div>
@@ -102,6 +127,13 @@ class Main extends React.Component {
   render() {
     return (
       <main>
+        <div>
+          {this.props.finish || this.state.seconds === 0 ? (
+            <h2 className="text-center">Again ?</h2>
+          ) : (
+            <h2 className="text-center">Time remaining {this.state.seconds}</h2>
+          )}
+        </div>
         <section className="container-fluid">
           <div className="row d-flex justify-content-around mt-4">
             {this.renderCards(0, 3)}

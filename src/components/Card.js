@@ -29,6 +29,7 @@ class Card extends React.Component {
         style={{ padding: 0 }}
       >
         <img
+          className=""
           src={this.state.path}
           alt="Carte retournée"
           style={{ width: "100%", height: "9rem" }}

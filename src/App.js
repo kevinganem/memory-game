@@ -11,6 +11,7 @@ class App extends React.Component {
     this.state = {
       finished: false,
     };
+
     this.gameOver = this.gameOver.bind(this);
   }
 
@@ -23,7 +24,7 @@ class App extends React.Component {
   render() {
     return (
       <>
-        <Header finish={this.state.finished} />
+        <Header finish={this.state.finished} gameOver={this.gameOver} />
         <Main finish={this.state.finished} gameOver={this.gameOver} />
       </>
     );
